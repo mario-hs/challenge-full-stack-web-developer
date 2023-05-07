@@ -9,7 +9,7 @@ import { envConfig } from "../../config/env";
 import { errorHandling } from "../../utils/error";
 
 const auth = async (req: Request, res: Response, next: any) => {
-  const user = new Admin(req.body);
+  // const user = new Admin(req.body);
   try {
     const user = await Admin.findOne({ email: req.body.email });
     if (!user) {
