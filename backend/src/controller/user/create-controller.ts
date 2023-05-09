@@ -8,7 +8,11 @@ const createUser = async (req: Request, res: Response) => {
   const user = new User(req.body);
   try {
     const createdUser = await user.save();
-    res.status(201).json(createdUser);
+    const body = {
+      code: 200,
+      users: createdUser,
+    };
+    res.status(201).json(body);
   } catch (error: any) {
     let newError: HttpResponse;
     if (error.code) {

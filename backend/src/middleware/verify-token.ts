@@ -8,12 +8,12 @@ const verifyToken = (req: Request, res: Response, next: any) => {
     const accessToken = req.headers.authorization?.split(" ")[1];
 
     if (!accessToken) {
-      return errorHandling(401, "Você não está autenticado", res); //res.status(401).json("Você não está autenticado.");
+      return errorHandling(401, "Você não está autenticado", res);
     }
     jwt.verify(accessToken, envConfig.getJwtSecret());
     next();
   } catch (error) {
-    next(error);
+    return errorHandling(401, "Você não está autenticado", res);
   }
 };
 

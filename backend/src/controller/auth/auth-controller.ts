@@ -9,7 +9,6 @@ import { envConfig } from "../../config/env";
 import { errorHandling } from "../../utils/error";
 
 const auth = async (req: Request, res: Response, next: any) => {
-  // const user = new Admin(req.body);
   try {
     const user = await Admin.findOne({ email: req.body.email });
     if (!user) {
@@ -23,10 +22,10 @@ const auth = async (req: Request, res: Response, next: any) => {
       return errorHandling(401, "Senha inválida", res);
     }
     const { _id, email, name } = user;
-    const accessToken = jwt.sign({ id: user._id }, envConfig.getJwtSecret(), {
+    const token = jwt.sign({ id: user._id }, envConfig.getJwtSecret(), {
       expiresIn: "1h",
     });
-    res.status(200).json({ id: _id, email, name, accessToken });
+    res.status(200).json({ user: { id: _id, email, name }, token });
   } catch (error: any) {
     let newError: HttpResponse;
     if (error.code) {

@@ -9,7 +9,7 @@ const deleteUser = async (req: Request, res: Response) => {
     await User.findByIdAndDelete(req.params.id);
     const body = {
       code: 200,
-      message: "Exercicio excluído com sucesso.",
+      message: "User excluído com sucesso.",
     };
     res.status(200).json(body);
   } catch (error) {
