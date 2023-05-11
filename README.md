@@ -56,7 +56,7 @@ $ git clone https://github.com/mario-hs/challenge-full-stack-web-developer
 $ cd challenge-full-stack-web-developer
 ```
 
-Para iniciar o backend, siga os passos abaixo:
+Para iniciar o backend, siga os passos a baixo:
 
 1. Crie um arquivo .env dentro da pasta backend
 2. Insira no arquivo o **MONGO_URL** recebendo a url de conecção com o banco de dados **(MongoDB)**
@@ -76,7 +76,7 @@ $ yarn dev
 
 O servidor estará disponível no endereço http://localhost:8080.
 
-Para iniciar o frontend, siga os passos abaixo:
+Para iniciar o frontend, siga os passos a baixo:
 
 ```bash
 # Entre na pasta do back-end
