@@ -23,8 +23,8 @@
 
 <script>
   import api from '../services/http'
-  import { useAuth } from '../stores/auth'
   import router from "../router";
+  import { useAuth } from '../stores/auth'
 
   export default {
       data() {

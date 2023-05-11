@@ -10,10 +10,25 @@ const routes = [
   {
     path: "/home",
     name: "home",
-    component: () => import("../views/Home.vue"),
-    meta: {
-      auth: true,
-    },
+    children: [
+      {
+        path: "/home/",
+        name: "add",
+        component: () => import("@/components/Form.vue"),
+        meta: {
+          auth: true,
+        },
+      },
+      {
+        path: "/home/list",
+        name: "list",
+        component: () => import("@/components/Card.vue"),
+        meta: {
+          auth: true,
+        },
+      },
+    ],
+    component: () => import("@/views/Home.vue"),
   },
 ];
 

@@ -5,7 +5,7 @@ import { forbidden, required } from "../../helpers/helpers";
 import { HttpResponse } from "../../types/http";
 
 const createUser = async (req: Request, res: Response) => {
-  const user = new User(req.body);
+  const user = new User(req.body.body);
   try {
     const createdUser = await user.save();
     const body = {
