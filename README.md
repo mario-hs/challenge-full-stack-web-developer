@@ -1,7 +1,7 @@
-<p align="center">
+<!-- <p align="center">
   <img alt="Marvel" src="https://github.com/mario-hs/marvel/blob/main/src/assets/img/logo-marvel-big.svg" width="160px">
 </p>
-
+ -->
 <p align="center">
 
    <a href="https://www.linkedin.com/in/mario-hs/">
@@ -17,7 +17,7 @@
 
 O projeto é um teste técnico realizado para empresa **[Obi.tec](https://obi.tec.br/)**, dos dias 5 de maio de 2023 à 11 de maio de 2023, cujo o objetivo era criar um sistema tanto frontend quanto backend que realizasse as funções de um CRUD com algumas validações.
 
-Para mais detalhes do projeto **[clique aqui](https://github.com/mario-hs/)**
+Para mais detalhes do projeto **[clique aqui](https://github.com/mario-hs/challenge-full-stack-web-developer/blob/main/project/README.md)**
 
 <br>
 
