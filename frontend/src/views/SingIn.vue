@@ -12,7 +12,17 @@
                 <v-text-field v-model="password" type="password" label="Senha"></v-text-field>
                 <a href="#" class="text-body-2 font-weight-regular">Esqueceu sua senha?</a>
 
-                <v-btn type="submit" color="primary" block class="mt-2" v-on:click="login" >Sign in</v-btn>
+                <v-btn type="submit" 
+                  block
+                  :disabled="loading"
+                  :loading="loading"
+                  class="text-none mb-4 mt-2"
+                  color="indigo-darken-3"
+                  size="x-large"
+                  @click.prevent="login"
+                  variant="flat"  >
+                  Sign in
+                </v-btn>
             </v-form>
             <div class="mt-2">
                 <p class="text-body-2">Ainda não tem conta? <a href="#">Sign Up</a></p>
@@ -23,18 +33,20 @@
 
 <script>
   import api from '../services/http'
-  import router from "../router";
+  import {router} from "../router";
   import { useAuth } from '../stores/auth'
 
   export default {
       data() {
           return {
-              email: 'admin@admin.com',
-              password: '123456',
+            loading: false,
+            email: 'admin@admin.com',
+            password: '123456',
           };
       },
       methods: {
           async login() {
+            this.loading= true;
             const auth = useAuth();
             try{
               await api
@@ -46,8 +58,12 @@
                   }
                 })
               router.push({ name: 'home' })
-              router.go(3)
+              this.loading= false;
+              router.go(2)
             }catch(error){
+              this.loading = false
+              this.dialog= false
+              alert(`[ERROR] - Não foi realizar o login, tente novamente!`)
               console.log(error);
             }
           },

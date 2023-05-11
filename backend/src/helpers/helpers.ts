@@ -3,11 +3,11 @@ import { HttpResponse } from "../types/http";
 const required = (message: any): HttpResponse => {
   let error: string;
   if (message.email) {
-    error = "Required email";
+    error = "Required E-mail";
   } else if (message.user_id) {
-    error = "Required id";
+    error = "Required UUID";
   } else {
-    error = "Required name";
+    error = "Required Name";
   }
 
   return {
@@ -24,17 +24,39 @@ const required = (message: any): HttpResponse => {
 const forbidden = (message: any): HttpResponse => {
   let error: string;
   if (message.email) {
-    error = "Forbidden email";
+    error = "Forbidden E-mail";
   } else if (message.user_id) {
-    error = "Forbidden id";
+    error = "Forbidden UUID";
   } else {
-    error = "Forbidden name";
+    error = "Forbidden Name";
   }
 
   return {
     status: 403,
     body: {
       code: 403,
+      error: {
+        message: error,
+      },
+    },
+  };
+};
+
+const duplicate = (message: any): HttpResponse => {
+  let error: string;
+
+  if (message.email) {
+    error = "Forbidden E-mail";
+  } else if (message.user_id) {
+    error = "Forbidden UUID";
+  } else {
+    error = "Forbidden Name";
+  }
+
+  return {
+    status: 409,
+    body: {
+      code: 409,
       error: {
         message: error,
       },
@@ -66,4 +88,4 @@ const notFound = (): HttpResponse => {
   };
 };
 
-export { required, forbidden, serverError, notFound };
+export { required, forbidden, duplicate, serverError, notFound };

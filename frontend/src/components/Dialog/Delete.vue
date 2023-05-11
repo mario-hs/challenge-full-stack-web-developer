@@ -14,7 +14,7 @@
       </template>
 
       <v-card>
-        <v-sheet style="width: 90%; max-width: 550px;" class="mx-auto pa-10">
+        <v-sheet style="width: 45vw; max-width: 550px; min-width: 245px" class="mx-auto py-10 px-5 pa-sm-10">
           <v-card-title class="d-flex justify-center pb-5">
             <h3 >Deletar</h3>
           </v-card-title>
@@ -24,33 +24,35 @@
           <br>
 
           <v-form fast-fail >
-            <p class="font-weight-black text-center">
-              Deseja confirmar a exclusão do usuário?
+            <p class="font-weight-black text-center mb-10">
+              Deseja confirmar a exclusão do usuário, {{user.name}}?
             </p>
             
             <p class="font-weight-regular">
-              {{user.name}}
+              
             </p>
 
-            <v-btn type="submit" 
-              :disabled="loading"
-              :loading="loading"
-              block
-              class="text-none mb-4"
-              color="indigo-darken-3"
-              size="x-large"
-              variant="flat" 
-              @click.prevent="handleDelete"
-               >
-              Sim
-            </v-btn>
-            <v-btn type="submit" block
-              class="text-none"
-              color="grey-lighten-3"
-              size="x-large"
-              variant="flat" @click.prevent="closeModal" >
-              Não
-            </v-btn>
+            <div class="d-flex justify-space-between">
+              <v-btn type="submit" 
+                style="width: 35%;"
+                :disabled="loading"
+                :loading="loading"
+                class="text-none mb-4"
+                color="indigo-darken-3"
+                size="x-large"
+                @click.prevent="handleDelete"
+                variant="flat"  >
+                Sim
+              </v-btn>
+              <v-btn type="submit"
+                style="width: 35%;" 
+                class="text-none"
+                color="grey-lighten-3"
+                size="x-large"
+                variant="flat" @click.prevent="closeModal" >
+                Não
+              </v-btn>
+            </div>
           
           </v-form>
             
@@ -87,12 +89,12 @@
       };
     },
     methods: {
-      handleDelete() {
+      async handleDelete() {
         const auth = useAuth().token
         try{
           this.loading = true
           
-          api
+          await api
           .delete(`/user/${this.user._id}`,  {
             headers: {
               authorization: "Bearer " + auth,
@@ -111,6 +113,7 @@
         }catch(error){
           this.loading = false
           this.dialog= false
+          alert(`[ERROR] - Não foi possível deletar o usuário, ${this.user.name}!`)
           console.log(error);
         }
       },

@@ -2,7 +2,7 @@
     <div class="d-flex align-center justify-center" style="height: 100vh; ">
         <v-sheet style="width: 90%; max-width: 550px;" class="mx-auto pa-10">
           <v-card-title class="d-flex justify-center pb-5">
-            <h3 >Cadastro</h3>
+            <h3 >Novo usuário</h3>
             </v-card-title>
             <v-divider></v-divider>
             <br>
@@ -12,8 +12,19 @@
                 <v-text-field v-model="email" type="email" label="Email"></v-text-field>
 
                 <div class="d-flex justify-space-between">
-                <v-btn type="submit" color="primary"  class="mt-2"  v-on:click.prevent="addUser">Cadastrar</v-btn>
-                <v-btn type="submit" variant="outlined" class="mt-2"  >Cancelar</v-btn>
+                <v-btn 
+                    :disabled="loading"
+                    :loading="loading" 
+                    type="submit" 
+                    block
+                    size="x-large"
+                    class="mt-2"
+                    color="indigo-darken-3"
+                    variant="flat" 
+                    @click.prevent="addUser"
+                >
+                    Cadastrar
+                </v-btn>
 
                 </div>
             </v-form>
@@ -24,15 +35,16 @@
 
 <script>
     import api from '../services/http'
-    import router from "../router";
+    import {router} from "../router";
     import { useAuth } from '../stores/auth'
 
     export default {
         data() {
                 return {
-                    user_id: 3,
-                    name: 'Jorge',
-                    email: 'jorge@gmail.com',
+                    loading: false,
+                    user_id: '',
+                    name: '',
+                    email: '',
                     dialog: false
                 };
         },
@@ -42,6 +54,7 @@
                 if (this.user_id === '' && this.name.trim() === '' && this.email.trim() === '') {
                     return;
                 }
+                this.loading = true
                 
                 try{
                     await api
@@ -56,16 +69,18 @@
                             }
                         )
                         .then(res => {
-                            
-                            if(res.status === 200){
-                                this.dialog = true;
+                            if(res.status === 201){
+                                alert("Usuário criado com sucesso!")
+                            }else {
+                                console.log(res.data)
                                 alert("Usuário editado com sucesso!")
                             }
                         })
+                    this.loading = false
 
-                    //   router.push({ name: 'home' })
-                    //   router.go(3)
                 }catch(error){
+                    this.loading = false
+                    alert(`[ERROR] - ${error.response.data.error.message.split(" ")[1]} já cadastrado`)
                     console.log(error);
                 }
             },

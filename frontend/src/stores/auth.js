@@ -38,11 +38,15 @@ export const useAuth = defineStore("auth", () => {
     }
   }
 
+  function logout() {
+    localStorage.clear();
+  }
   return {
     token,
     user,
     setToken,
     setUser,
     checkAuth,
+    logout,
   };
 });
