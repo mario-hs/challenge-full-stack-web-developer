@@ -1,120 +1,96 @@
-Obi Tec - Full Stack Web Developer
-===================
-O objetivo deste desafio é principalmente conhecermos um pouco mais de você que se candidatou para a nossa vaga de desenvolvedor Full Stack Web.
+<p align="center">
+  <img alt="Marvel" src="https://github.com/mario-hs/marvel/blob/main/src/assets/img/logo-marvel-big.svg" width="160px">
+</p>
 
-É importante ressaltar que solução do desafio não tem um gabarito. Vamos verificar as técnicas que utilizaram para a criação do serviço, como vocês encaram este desafio e também, claro, a entrega da solução.   
+<p align="center">
 
-As regras e os requisitos técnicos estão detalhadas abaixo, boa sorte!
+   <a href="https://www.linkedin.com/in/mario-hs/">
+    <img alt="Made by Mario Henrique" src="https://img.shields.io/static/v1?label=made%20by&message=Mario%20Henrique&color=D61511&labelColor=000000">
+  </a>
 
-_Time Obi.Tec_
-# Especificações Técnicas
-- **Front End:** [Vue.js](https://vuejs.org)
-- **UI Framework**:  [Vuetifyjs](https://vuetifyjs.com/en)  ou [Bootstrap](https://bootstrap-vue.org)
-- **API:** NodeJS
-- **Banco de Dados:** PostgreSQL, MySQL ou MongoDB
-- **Idioma de escrita do código:** Inglês
+  <img  src="https://img.shields.io/static/v1?label=license&message=MIT&color=D61511&labelColor=000000" alt="License">
+</p>
 
-# Requisitos
-## Contextualização
-Considere que para o módulo de autenticação da **Plataforma Obi Tec oAuth** será desenvolvido um **serviço** para o gerenciamento do **cadastro de usuário**. O desafio consiste em criar uma aplicação para o cadastro de usuários que atenda (mas não se detenha) aos critérios mínimos de aceitação.
+<br>
 
-## Histórias do Usuário
-- **Sendo** um usuário administrativo da Plataforma Obi Tec oAuth
-- **Quero** gerenciar os usuários da Plataforma
-- **Para** que seja possível configurar acessos aos sistemas dos clientes
+## 💻 Projeto
 
-### Critérios mínimos de aceite: 
-#### Cenário: listar usuários cadastrados 
-- **Dado** que estou na Plataforma Obi Tec oAuth
-- **Quando** clico no menu Usuários
-- **Então** abre a tela de Consulta de Usuários
-- **E** exibe opção Cadastrar ao topo
-- **E** exibe lista dos usuários
-- **E** para cada registro exibe o UUID (identificador único do usuário), Name e E-mail
-- **E** exibe a opção Editar
-- **E** exibe a opção Excluir
+O projeto é um teste técnico realizado para empresa **[Obi.tec](https://obi.tec.br/)**, dos dias 5 de maio de 2023 à 11 de maio de 2023, cujo o objetivo era criar um sistema tanto frontend quanto backend que realizasse as funções de um CRUD com algumas validações.
 
-#### Cenário: cadastrar novo usuário
-- **Dado** que estou na tela de Consulta de Usuários
-- **Quando** clico em Cadastrar
-- **Então** abre a tela de Cadastro do Usuário
-- **E** exibe os campos obrigatórios, UUID, Name e E-mail
-####
-- **Dado** que inseri dados válidos nos campos
-- **Quando** clico em Salvar
-- **Então** cria o novo usuário na base
-- **E** retorna mensagem de sucesso
-####
-- **Dado** que insiro um UUID já cadastrado
-- **Quando** clico em Salvar
-- **Então** é realizado uma validação que o UUID já existe
-- **E** retorna mensagem de erro "UUID já cadastrado"
-####
-- **Dado** que insiro um E-mail já cadastrado
-- **Quando** clico em Salvar
-- **Então** é realizado uma validação que o e-mail já existe
-- **E** retorna mensagem de erro "E-mail já cadastrado"
-####
-- **Dado** que não desejo cadastrar mais o Usuário
-- **Quando** clico em Cancelar
-- **Então** retorna para tela Consulta de Usuários
-- **E** não persiste a gravação dos dados no banco 
+Para mais detalhes do projeto **[clique aqui](https://github.com/mario-hs/)**
 
-#### Cenário editar cadastro de usuário
-- **Dado** que estou na tela de Consulta de Usuários
-- **Quando** clico em Editar Usuários
-- **Então** abre a tela de Edição
-- **E** exibe os campos do cadastro preenchidos
-- **E** habilita alteração dos campos editáveis
-####
-- **Dado** que altero os dados do Usuário
-- **Quando** clica em Salvar
-- **Então** grava os dados editáveis na base
-####
-- **Dado** que estou na tela de Edição
-- **Quando** clica em Cancelar
-- **Então** retorna para a tela de Consulta de Usuários
-- **E** não persiste a gravação dos dados
+<br>
 
-#### Cenário: excluir cadastro de usuário
-- **Dado** que estou na tela de Consulta de Usuários
-- **Quando** clico em Excluir 
-- **Então** exibe a modal de confirmação de exclusão
-####
-- **Dado** que estou na modal de confirmação de exclusão 
-- **Quando** clico em Confirmar
-- **Então** então exclui o registro do Usuário
-####
-- **Dado** que estou na modal de confirmação de exclusão
-- **Quando** clico em Cancelar
-- **Então** então fecha a modal e não persiste a exclusão
+<!-- ## 🔖 Layout
 
-## Campos obrigatórios:
-- **UUID** (não editável)
-- **Nome** (editável)
-- **E-mail** (editável)
+<h1 align="center">
+    <img alt="Marvel" src="https://github.com/mario-hs/marvel/blob/main/cover.png" />
+</h1> -->
 
-# Desejável
-- Testes unitários
-- Documentação da arquitetura de solução
+## 🧪 Tecnologias
 
-# Critérios de avaliação
-- Qualidade de escrita do código
-- Organização do projeto
-- Qualidade da API
-- Lógica da solução implementada
-- Qualidade da camada de persistência
-- Utilização do Git (quantidade e descrição dos commits, Git Flow, ...)
-- Funcionalidades extras
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-# Instruções de entrega
-1. Crie um fork do repositório no seu GitHub
-2. Faça o push do código desenvolvido no seu Github
-3. Inclua um README.md explicando como rodar o projeto
-4. Inclua um arquivo chamado COMMENTS.md explicando
-  - Decisão da arquitetura utilizada
-  - Lista de bibliotecas de terceiros utilizadas
-  - O que você melhoraria se tivesse mais tempo
-  - Quais requisitos obrigatórios que não foram entregues (se houver)
-5. Informe ao recrutador quando concluir o desafio junto com o link do repositório
-6. Após revisão do projeto junto com a equipe de desenvolvimento deixe seu repositório privado
+### Frontend
+
+- [vue](https://vuejs.org/)
+- [axios](https://axios-http.com/ptbr/)
+- [pinia](https://pinia.vuejs.org/)
+- [vuetify](https://vuetifyjs.com/en/)
+
+### Backend
+
+- [nodeJs](https://nodejs.org/en)
+- [axios](https://axios-http.com/ptbr/)
+- [express](https://www.npmjs.com/package/express)
+- [cors](https://www.npmjs.com/package/cors)
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+
+## 🚀 Como executar
+
+Clone o projeto e acesse a pasta do mesmo.
+
+```bash
+$ git clone https://github.com/mario-hs/challenge-full-stack-web-developer
+$ cd challenge-full-stack-web-developer
+```
+
+Para iniciar o backend, siga os passos abaixo:
+
+1. Crie um arquivo .env dentro da pasta backend
+2. Insira no arquivo o **MONGO_URL** recebendo a url de conecção com o banco de dados **(MongoDB)**
+3. Inclua também no arquivo .env uma **JWT_SECRET**
+4. Então siga os comandos a baixo:
+
+```bash
+# Entre na pasta do back-end
+$ cd backend
+
+# Instalar as dependências
+$ yarn
+
+# Iniciar o projeto
+$ yarn dev
+```
+
+O servidor estará disponível no endereço http://localhost:8080.
+
+Para iniciar o frontend, siga os passos abaixo:
+
+```bash
+# Entre na pasta do back-end
+$ cd frontend
+
+# Instalar as dependências
+$ yarn
+
+# Iniciar o projeto
+$ yarn dev
+```
+
+O app estará disponível no seu browser pelo endereço http://127.0.0.1:3000/.
+
+---
+
+Feito com ❤️ by Mario Henrique 👋🏻
